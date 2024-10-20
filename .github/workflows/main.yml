@@ -1,0 +1,19 @@
+name: ci-cd
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello-step
+        run: echo "Hello from github actions"
+
+    bye:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Bye-step
+          run: echo "Bye Bye!"
