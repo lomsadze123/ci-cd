@@ -12,7 +12,7 @@ jobs:
         run: echo "Hello from github actions"
 
       - name: List directories
-        uses: ls -la
+        run: ls -la
 
       - name: Clone Repository
         uses: actions/checkout@v4
