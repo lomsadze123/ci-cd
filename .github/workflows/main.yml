@@ -11,11 +11,11 @@ jobs:
       - name: Hello-step
         run: echo "Hello from github actions"
 
-      - name: List directories
-        run: ls -la
-
       - name: Clone Repository
         uses: actions/checkout@v4
+
+      - name: List directories
+        run: ls -la
 
   bye:
     runs-on: ubuntu-latest
@@ -29,7 +29,7 @@ jobs:
     needs: [hello]
 
     steps:
-      - name: Install dependencies
+      - name: Install Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
