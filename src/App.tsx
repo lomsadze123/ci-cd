@@ -1,10 +1,28 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reactLogo from "./assets/react.svg";
 import CounterButton from "./components/CounterButton";
 import { useStore } from "./stores";
 import viteLogo from "/vite.svg";
+import RootLayout from "./layout/RootLayout";
 
 const App = () => {
   const { count } = useStore();
+  const router = createBrowserRouter([
+    {
+      path: "/ci-cd",
+      element: <RootLayout />,
+      children: [
+        {
+          index: true,
+          element: <h1>Home</h1>,
+        },
+        {
+          path: "about",
+          element: <h1>About</h1>,
+        },
+      ],
+    },
+  ]);
 
   return (
     <>
@@ -27,6 +45,8 @@ const App = () => {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+
+      <RouterProvider router={router} />
     </>
   );
 };
