@@ -4,8 +4,17 @@ import CounterButton from "./components/CounterButton";
 import { useStore } from "./stores";
 import viteLogo from "/vite.svg";
 import RootLayout from "./layout/RootLayout";
+import { useQuery } from "@tanstack/react-query";
 
 const App = () => {
+  const { data } = useQuery({
+    queryKey: ["todo"],
+    queryFn: () =>
+      fetch("https://jsonplaceholder.typicode.com/todos").then((res) =>
+        res.json()
+      ),
+  });
+  console.log(data);
   const { count } = useStore();
   const router = createBrowserRouter([
     {
